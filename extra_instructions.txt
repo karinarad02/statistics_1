@@ -1,0 +1,44 @@
+To perform the demonstrations and practices, you can write and submit code in SAS Studio, SAS Enterprise Guide, or the SAS Windowing environment, or you can use SAS Studio tasks. In addition to Base SAS software, you must have SAS/STAT.
+
+In the course demos, we submit code in the SAS Studio programming environment, but you can view step-by-step task instructions by clicking the Task Version button below the video. The task-generated code and results might differ from those shown in the video, so the generated code is included for verification.
+
+You can also write code or use SAS Studio tasks to complete the practices. Just select the Open Code Version or the Open Task Version button on the Practice page.
+
+All task steps were written for SAS Studio 3.7. If you are using your own software, you can use the Downloads page to upgrade your SAS Studio Single-User Edition to the latest release, including hot fixes. If you don't have your own software, you can use SAS OnDemand for Academics to access SAS Studio free of charge.
+
+Program Files
+The course files are divided among 4 folders. The ECST142 folder contains SAS programs to setup the course environment and data, and three subfolders:
+
+data - the SAS data sets needed to run the demos and practices will be stored here.
+demos - contains the demo program files.
+solutions - contains the solution program files.
+Demo and solution program names are in the form st1XXyZZ.sas where st1 is the course code, XX is a 2-digit lesson number, y is either d for demo or s for solution, and ZZ is a two-digit number to uniquely identify the file. For simplicity, the demo and solution files are each numbered sequentially within a lesson. For example, st102d03.sas is the third demo in lesson 2, and st104s02.sas is the solution to the second practice in lesson 4. The filename is included in a comment at the top of each program.
+
+SAS Syntax
+Partial SAS syntax is displayed and explained in the demos. To view detailed syntax from SAS Studio, click the Help button near the top right and select SAS Product Documentation. You can also navigate to support.sas.com/documentation.
+
+Exploring SAS Data Sets in SAS Studio
+You can use the table viewer in SAS Studio to explore SAS data sets.
+
+Open SAS Studio. In the navigation pane on the left, double-click Libraries. Expand My Libraries and then expand the SASHELP library.
+
+Open the CARS data set by double-clicking it or by dragging it to the work area on the right. The data set opens in the table viewer. By default all of the columns and the first 100 rows are displayed. You can use the arrows above the table (top right) to page forward and backward through the rows.
+
+Clear the Select all checkbox in the Columns area of the table viewer. No columns are displayed. Select the Make, Model, and Type checkboxes. The corresponding columns are displayed.
+
+Select Make in the column list. The column properties are displayed below the list.
+
+Close the table tab.
+You can also use SAS Studio tasks to explore your data. The List Data task displays the rows of a SAS data set, and the List Table Attributes task displays its metadata including the number of columns and rows, and the name, type and length of each column.
+
+Exploring SAS Data Sets Programmatically
+You can use the PRINT procedure to display the rows of a SAS data set, and the CONTENTS procedure to display its metadata.
+
+In the PROC PRINT step, you use the DATA= option to name the input data set and the VAR statement to select the columns to display. By default, SAS lists all columns and all rows, but you can use the OBS=n data set option to limit the display to the first n rows. In the PROC CONTENTS step, you use the DATA= option to name the input data set.
+
+Sample Code
+proc print data=sashelp.cars(obs=100);
+   var Make Model Type MSRP;
+run;
+proc contents data=sashelp.cars;
+run;
